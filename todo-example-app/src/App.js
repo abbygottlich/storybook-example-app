@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-// import styled from "styled-components";
+import styled from "styled-components";
 
 class App extends React.Component {
   constructor() {
@@ -31,7 +31,7 @@ class App extends React.Component {
 
   showGoodJob = () => {
     if (this.state.completed) {
-      return <div>Good Job!</div>;
+      return <GoodJob>Good Job!</GoodJob>;
     }
   };
 
@@ -56,8 +56,8 @@ class App extends React.Component {
   }
 }
 
-// const GoodJob = styled.p`
-//   color: blue;
-// `;
+const GoodJob = styled.p`
+  color: red;
+`;
 
 export default App;
