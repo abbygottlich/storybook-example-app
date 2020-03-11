@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import ShowGoodJob from "./components/GoodJob";
 
 class App extends React.Component {
@@ -46,12 +46,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <input
-          onChange={this.onChange}
-          id="todo"
-          placeholder="To do..."
-        ></input>
-        <button onClick={this.onAdd}>Add</button>
+        <p>To Do List</p>
+        <div className="input-add-wrapper">
+          <input
+            onChange={this.onChange}
+            id="todo"
+            placeholder="To do..."
+          ></input>
+          <button onClick={this.onAdd}>Add</button>
+        </div>
         <ul>
           {this.list.map((item, index) => {
             return (
