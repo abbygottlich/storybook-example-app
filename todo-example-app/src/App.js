@@ -5,16 +5,24 @@ import ShowGoodJob from "./components/GoodJob";
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
       todos: [],
+      inputValue: null,
       completed: false
     };
+
+    this.list = [];
   }
 
-  list = [];
+  onChange = e => {
+    this.setState({
+      inputValue: e.target.value
+    });
+  };
 
   onAdd = () => {
-    this.list.push(document.getElementById("todo").value);
+    this.list.push(this.state.inputValue);
     this.setState({
       todos: this.list
     });
@@ -22,7 +30,7 @@ class App extends React.Component {
   };
 
   onComplete = index => {
-    this.state.todos.splice(index);
+    this.state.todos.splice(index, 1);
     this.setState({
       todos: this.state.todos,
       completed: true
@@ -38,14 +46,24 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <input id="todo" placeholder="To do..."></input>
+        <input
+          onChange={this.onChange}
+          id="todo"
+          placeholder="To do..."
+        ></input>
         <button onClick={this.onAdd}>Add</button>
         <ul>
-          {this.state.todos.map((item, index) => {
+          {this.list.map((item, index) => {
             return (
-              <div className="list-item-wrapper">
+              <div key={index} className="list-item-wrapper">
                 <li>{item}</li>
-                <button onClick={this.onComplete}>Complete</button>
+                <button
+                  onClick={() => {
+                    this.onComplete(index);
+                  }}
+                >
+                  Complete
+                </button>
               </div>
             );
           })}
