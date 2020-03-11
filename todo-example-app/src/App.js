@@ -48,7 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>To Do List</p>
+        <h1>To Do List</h1>
         <div className="input-add-wrapper">
           <input
             onChange={this.onChange}
@@ -61,14 +61,12 @@ class App extends React.Component {
           {this.state.todos.map((item, index) => {
             return (
               <div key={index} className="list-item-wrapper">
-                <li>{item}</li>
                 <button
                   onClick={() => {
                     this.onComplete(index);
                   }}
-                >
-                  Complete
-                </button>
+                ></button>
+                <li>{item}</li>
               </div>
             );
           })}
