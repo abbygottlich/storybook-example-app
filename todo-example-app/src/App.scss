@@ -1,11 +1,58 @@
+body {
+  background-color: #fe5555;
+}
+
 p {
   font-family: "Helvetica";
   font-size: 48px;
   text-align: center;
+  color: #aa0000;
 }
 
 .input-add-wrapper {
   text-align: center;
+  display: flex;
+  justify-content: center;
+
+  input {
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 24px;
+    background-color: #ff8080;
+    border: none;
+    border-bottom: 2px solid #aa0000;
+    color: #aa0000;
+    font-family: "Helvetica";
+
+    &::placeholder {
+      color: #aa0000;
+      font-family: "Helvetica";
+    }
+  }
+
+  button {
+    width: 75px;
+    height: 48px;
+    border: none;
+    border-radius: 500px;
+    background-color: #aa0000;
+    color: #ff8080;
+    font-family: "Helvetica";
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.25s, color 0.25s;
+
+    &:hover {
+      background-color: #ff8080;
+      color: #aa0000;
+    }
+
+    &:active {
+      background-color: #aa0000;
+      color: #ff8080;
+    }
+  }
 }
 
 .list-item-wrapper {

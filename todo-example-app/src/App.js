@@ -22,11 +22,13 @@ class App extends React.Component {
   };
 
   onAdd = () => {
-    this.list.push(this.state.inputValue);
-    this.setState({
-      todos: this.list
-    });
-    document.getElementById("todo").value = null;
+    if (this.state.inputValue) {
+      this.list.push(this.state.inputValue);
+      this.setState({
+        todos: this.list
+      });
+      document.getElementById("todo").value = null;
+    }
   };
 
   onComplete = index => {
@@ -56,7 +58,7 @@ class App extends React.Component {
           <button onClick={this.onAdd}>Add</button>
         </div>
         <ul>
-          {this.list.map((item, index) => {
+          {this.state.todos.map((item, index) => {
             return (
               <div key={index} className="list-item-wrapper">
                 <li>{item}</li>
