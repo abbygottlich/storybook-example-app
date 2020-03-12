@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import ShowGoodJob from "./components/GoodJob";
+import ShowCompleted from "./components/Completed";
 
 class App extends React.Component {
   constructor() {
@@ -37,11 +37,14 @@ class App extends React.Component {
       todos: this.state.todos,
       completed: true
     });
+    setTimeout(() => {
+      this.setState({ completed: false });
+    }, 2500);
   };
 
-  showGoodJob = () => {
+  showCompleted = () => {
     if (this.state.completed) {
-      return <ShowGoodJob />;
+      return <ShowCompleted />;
     }
   };
 
@@ -71,7 +74,7 @@ class App extends React.Component {
             );
           })}
         </ul>
-        {this.showGoodJob()}
+        {this.showCompleted()}
       </div>
     );
   }
