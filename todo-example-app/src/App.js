@@ -58,7 +58,9 @@ class App extends React.Component {
             id="todo"
             placeholder="To do..."
           ></input>
-          <button onClick={this.onAdd}>Add</button>
+          <button onClick={this.onAdd} id="add-btn">
+            Add
+          </button>
         </div>
         <ul>
           {this.state.todos.map((item, index) => {
